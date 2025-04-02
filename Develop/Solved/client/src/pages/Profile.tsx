@@ -1,8 +1,8 @@
 import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
-import ThoughtForm from '../components/ThoughtForm';
-import ThoughtList from '../components/ThoughtList';
+import TabForm from '../components/TabForm';
+import TabList from '../components/TabList';
 
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 
@@ -44,9 +44,9 @@ const Profile = () => {
         </h2>
 
         <div className="col-12 col-md-10 mb-5">
-          <ThoughtList
-            thoughts={user.thoughts}
-            title={`${user.username}'s thoughts...`}
+          <TabList
+            tabs={user.tabs}
+            title={`${user.username}'s tabs...`}
           />
         </div>
         {!userParam && (
@@ -54,7 +54,7 @@ const Profile = () => {
             className="col-12 col-md-10 mb-3 p-3"
             style={{ border: '1px dotted #1a1a1a' }}
           >
-            <ThoughtForm />
+            <TabForm />
           </div>
         )}
       </div>
