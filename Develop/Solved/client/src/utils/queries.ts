@@ -6,55 +6,77 @@ export const QUERY_USER = gql`
       _id
       username
       email
-      thoughts {
+      tabs {
         _id
-        thoughtText
+        tabContent
         createdAt
       }
     }
   }
 `;
 
-export const QUERY_THOUGHTS = gql`
-  query getThoughts {
-    thoughts {
+export const QUERY_TABS = gql`
+  query getTabs {
+    tabs {
       _id
-      thoughtText
-      thoughtAuthor
+      tabContent
+      tabAuthor
       createdAt
     }
   }
-`;
+`
 
-export const QUERY_SINGLE_THOUGHT = gql`
-  query getSingleThought($thoughtId: ID!) {
-    thought(thoughtId: $thoughtId) {
+export const QUERY_SINGLE_TAB = gql`
+  query getSingleTab($tabId: ID!) {
+    tab(tabId: $tabId) {
       _id
-      thoughtText
-      thoughtAuthor
+      tabContent
+      tabAuthor
       createdAt
-      comments {
-        _id
-        commentText
-        commentAuthor
-        createdAt
-      }
     }
   }
-`;
+`
+
 
 export const QUERY_ME = gql`
-  query me {
+query me {
     me {
       _id
       username
       email
-      thoughts {
+      tabs {
         _id
-        thoughtText
-        thoughtAuthor
+        tabContent
+        tabAuthor
         createdAt
       }
     }
   }
 `;
+
+// export const QUERY_THOUGHTS = gql`
+//   query getThoughts {
+      //     thoughts {
+        //       _id
+      //       thoughtText
+      //       thoughtAuthor
+      //       createdAt
+      //     }
+      //   }
+      // `;
+      // export const QUERY_SINGLE_THOUGHT = gql`
+      //   query getSingleThought($thoughtId: ID!) {
+      //     thought(thoughtId: $thoughtId) {
+      //       _id
+      //       thoughtText
+      //       thoughtAuthor
+      //       createdAt
+      //       comments {
+      //         _id
+      //         commentText
+      //         commentAuthor
+      //         createdAt
+      //       }
+      //     }
+      //   }
+      // `;
