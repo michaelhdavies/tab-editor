@@ -1,12 +1,8 @@
-import { Tab, User } from '../models/index.js';
+import { User } from '../models/index.js';
 import process from 'process';
 
 const cleanDB = async (): Promise<void> => {
   try {
-    // Delete documents from THought collection
-    await Tab.deleteMany({});
-    console.log('Tab collection cleaned.');
-
     // Delete documents from User collection
     await User.deleteMany({});
     console.log('User collection cleaned.');
