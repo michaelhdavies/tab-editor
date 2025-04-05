@@ -11,7 +11,7 @@ function StringBox({ stringIndex, activeIndex, updateString }: StringBoxProps) {
 
 const handleClick = (index: number) => {
   if (activeIndex === index) {
-    updateString(stringIndex, 0);
+    updateString(stringIndex, -1);
   } else {
     updateString(stringIndex, index);
   }
