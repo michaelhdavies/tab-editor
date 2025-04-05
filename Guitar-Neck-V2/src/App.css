@@ -1,0 +1,28 @@
+/* src/App.css */
+
+.stringPosition {
+
+    background:none;
+    border:1px black solid;
+    margin: 0 auto;
+    padding: 0;
+    cursor:pointer;
+    color:inherit;
+    width: 150px;
+    height: 40px;
+
+    
+}
+
+.stringBox {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    height: 40px;
+    width: 1600px;
+    margin: 0 auto;
+    padding: 0;
+
+}
+
