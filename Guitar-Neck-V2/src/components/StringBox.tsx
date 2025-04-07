@@ -9,23 +9,25 @@ type StringBoxProps = {
 function StringBox({ stringIndex, activeIndex, updateString }: StringBoxProps) {
   const positions = Array.from({ length: 25 }, (_, index) => index);
 
-const handleClick = (index: number) => {
-  if (activeIndex === index) {
-    updateString(stringIndex, -1);
-  } else {
-    updateString(stringIndex, index);
-  }
-};
+  const handleClick = (index: number) => {
+    if (activeIndex === index) {
+      updateString(stringIndex, -1);
+    } else {
+      updateString(stringIndex, index);
+    }
+  };
 
   return (
-    <div className="stringBox">
+    <div className="string">
       {positions.map((index) => (
         <button
           key={index}
-          className={`stringPosition ${activeIndex === index ? 'active' : ''}`}
+          className={`fret-position ${activeIndex === index ? 'active' : ''}`}
           onClick={() => handleClick(index)}
         >
-          {activeIndex === index && `\u2B24 ${activeIndex}`}
+          {activeIndex === index && (
+            <span className="fret-marker">{activeIndex}</span>
+          )}
         </button>
       ))}
     </div>
