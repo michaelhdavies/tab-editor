@@ -1,6 +1,7 @@
-// src/LiveTabs.tsx
+// src/components/LiveTabs.tsx
 
 import { useTab } from './TabContext.js';
+
 function LiveTabs() {
   const { activeIndexes } = useTab();
   const strings = ['e', 'B', 'G', 'D', 'A', 'E'];
@@ -20,24 +21,14 @@ function LiveTabs() {
   };
 
   return (
-    <div className="tabs">
-      <div className="tab-display">
-        {activeIndexes.map((fret, idx) => (
-          <div key={idx} className="tab-fret">
-            {fret === -1 ? '-' : fret}
-          </div>
-        ))}
-      </div>
-      <pre>
-        {strings.map((stringName, idx) => (
-          <div key={idx}>
-            {stringName}:|{formatFret(activeIndexes[idx])}|
-          </div>
-        ))}
-      </pre>
-    </div>
+    <pre>
+      {strings.map((stringName, idx) => (
+        <div key={idx}>
+          {stringName}:|{formatFret(activeIndexes[idx])}|
+        </div>
+      ))}
+    </pre>
   );
 }
 
 export default LiveTabs;
-
