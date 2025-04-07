@@ -16,10 +16,10 @@ function App() {
           <LiveArray />
           <NeckBox />
           <div className="bottomRow">
-            <ButtonsBox />
             <div className="tabs">
               <LiveTabs />
             </div>
+            <ButtonsBox />
             <DisplayTabs />
           </div>
         </div>
