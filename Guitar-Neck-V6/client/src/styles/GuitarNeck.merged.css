@@ -1,0 +1,272 @@
+/* GuitarNeck.merged.css */
+:root {
+  --headstock-width: 200px;
+  --neck-height: 320px;
+  --string-spacing: 15px;
+  --fret-width: 60px;
+  --wood-dark: #5c2e0d;
+  --wood-medium: #8b4513;
+  --wood-light: #a0522d;
+  --nut-width: 8px;
+}
+
+.guitar-neck-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1700px;
+  margin: 0 auto;
+  padding: 0;
+  padding-bottom: 10px;
+}
+
+.fretNumsRow {
+  display: flex;
+  width: calc(100% - var(--headstock-width) - 80px);
+  margin-left: calc(var(--headstock-width) + 72px); /* Account for nut width */
+  border-bottom: none;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4px 4px 0 0;
+  height: 30px;
+}
+
+.fretNumBox {
+  width: var(--fret-width);
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 2px solid rgba(255, 255, 255, 0.1);
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.guitar-neck {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, var(--wood-medium), var(--wood-light));
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  border-radius: 0 8px 8px 0;
+}
+
+.headstock {
+  width: var(--headstock-width);
+  height: calc(var(--neck-height) - 12px);
+  position: relative;
+  background: var(--wood-dark);
+  padding: 1rem;
+  margin-right: 0;
+  margin-left: -10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px 0px 0px 10px;
+}
+
+.tuning-pegs {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.tuning-pegs-row {
+  position: absolute;
+  left: 40px;
+  width: calc(var(--headstock-width) * 0.6);
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.tuning-pegs-row.top {
+  top: 50px;
+}
+
+.tuning-pegs-row.bottom {
+  bottom: 50px;
+}
+
+.tuning-peg {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+}
+
+/* The peg shaft */
+.tuning-peg::before {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 4px;
+  background: #c89f72;
+  border-radius: 2px;
+}
+
+/* The peg knob */
+.tuning-peg::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #a8a8a8;
+  border-radius: 50%;
+  left: -6px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.neck-body {
+  flex: 1;
+  position: relative;
+  padding: 1px 0;
+  display: grid;
+  /* grid-template-rows: repeat(6, 1fr); */
+  gap: var(--string-spacing);
+  height: 320px;
+  background: linear-gradient(to right, #361f0f, #7f431c);
+  border-radius: 0 8px 8px 0;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.neckContainer {
+  width: 100%;
+}
+
+.neckBox {
+  display: flex;
+  flex-direction: column;
+  gap: var(--string-spacing);
+  padding: 10px 0;
+  background: transparent;
+}
+
+.stringBox {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  position: relative;
+  padding-left: 40px;
+}
+
+.string-label {
+  position: absolute;
+  left: 0;
+  width: 30px;
+  text-align: right;
+  font-family: monospace;
+  font-size: 20px;
+  color: #999595;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.stringPosition {
+  width: var(--fret-width);
+  height: 40px;
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Vertical fret lines */
+.stringPosition::after {
+  content: "";
+  position: absolute;
+  top: -20px;
+  right: 0;
+  width: 2px;
+  height: 80px;
+  background: linear-gradient(
+    to right,
+    rgba(192, 192, 192, 0.8),
+    rgba(128, 128, 128, 0.8),
+    rgba(192, 192, 192, 0.8)
+  );
+  box-shadow: 1px 0 2px rgba(0, 0, 0, 0.3);
+}
+
+/* String lines */
+.stringPosition::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.8),
+    rgba(192, 192, 192, 0.8),
+    rgba(255, 255, 255, 0.8)
+  );
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+/* Active fret marker */
+.stringPosition.active .fret-marker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: radial-gradient(circle at center, #ffffff, #c0c0c0);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  font-size: 16px;
+  font-weight: bold;
+  color: #000;
+  z-index: 3;
+}
+
+.nut {
+  position: absolute;
+  width: 8px;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(220, 220, 220, 0.9),
+    rgba(180, 180, 180, 0.9)
+  );
+  left: 0;
+  top: 0;
+  z-index: 3;
+  border-radius: 2px;
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Fret grid overlay */
+.neck-body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background-image: linear-gradient(
+    to right,
+    var(--fret-color) 1px,
+    transparent 1px
+  );
+  background-size: var(--fret-width) 100%;
+  background-position: 0 0;
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 2;
+}
