@@ -1,4 +1,5 @@
 .guitar-neck {
+  /* --headstock-width: 320px; */
   display: flex;
   flex-direction: row;
   background: linear-gradient(to right, #8b4513, #a0522d);
@@ -6,34 +7,78 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   position: relative;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1800px;
   margin: 0 auto;
+  padding: 0rem;
+  
 }
 
 .headstock {
-  width: 250px;
-  height: 320px;
-  background: linear-gradient(to right, #4f2304, #a0522d);
-  border-radius: 8px 0 0 8px;
+  width: 320px;
+  height: 288px;
+  background: #5c2e0d;
   position: relative;
   margin-right: -10px;
   margin-left: -10px;
-  box-shadow: -1px 0 2px rgba(225, 225, 225, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px 20px 20px 10px;
+  padding: 1rem;
 }
 
-/* .tuning-pegs {
-  display: flex;
-  justify-content: space-around;
-  padding: 10px;
-} */
+.tuning-pegs {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
 
-/* .tuning-peg {
-  width: 20px;
-  height: 20px;
-  background: #c0c0c0;
+.tuning-pegs-row {
+  position: absolute;
+  left: 50px;
+  width: calc(var(--headstock-width) * 0.6);
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.tuning-pegs-row.top {
+  top: 50px;
+}
+
+.tuning-pegs-row.bottom {
+  bottom: 50px;
+}
+
+.tuning-peg {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+}
+
+/* The peg shaft */
+.tuning-peg::before {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 40px;
+  background: #c89f72;
+  border-radius: 2px;
+}
+
+/* The peg knob */
+.tuning-peg::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: #a8a8a8;
   border-radius: 50%;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-} */
+  left: -8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
 
 .neck-body {
   flex: 1;
@@ -46,6 +91,7 @@
   background: linear-gradient(to right, #361f0f9a, #361a0d0d);
   border-radius: 0 8px 8px 0;
   overflow: hidden;
+  min-width: 0; /* Ensures flex child can shrink below content size */
 }
 
 .string {
@@ -89,7 +135,7 @@
   );
   pointer-events: none;
   z-index: 2;
-  width: 100%;
+  width: 90%;
 }
 
 .fret-position {
@@ -99,7 +145,7 @@
   padding: 0;
   cursor: pointer;
   color: #c0c0c0;
-  width: calc(100% / 24); /* Match fret spacing */
+  width: 54.95px;
   height: 100%;
   position: relative;
   display: flex;
