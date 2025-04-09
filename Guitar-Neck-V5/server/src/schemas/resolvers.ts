@@ -3,10 +3,15 @@ import {signToken} from '../utils/auth.js';
 
 interface TabArgs {
     tabId:string;
+    tabContent: number[][];
+
     }
 interface AddTabArgs {
     tabContent: number [][];
     tabAuthor: string;
+    }
+interface DropTabArgs {
+    tabId: string;
     }
 
 const resolvers = {
@@ -72,10 +77,38 @@ const resolvers = {
                 console.error(error);
                 throw new Error('Error creating tab');
             }
+        },
+        editTab: async (_parent:any, {tabId, tabContent}: TabArgs) => {
+            try{
+            const newTab= await Tab.findByIdAndUpdate(
+                {_id: tabId},
+                {$set: {tabContent: tabContent}},
+                {new: true}
+            ); return newTab?.tabContent;
+        } catch (error) {
+            console.error(error);
+            throw new Error('Error editing tab');
         }
-        // editTab:
-        // removeTab:async () => {
-        // }
+    },
+        dropTab: async (_parent: any, { tabId }: DropTabArgs, context: any) => {
+        if (context.user) {
+          const tab = await Tab.findOneAndDelete({
+            _id: tabId,
+          });
+  
+          if(!tab){
+            throw new Error('Tab not found or unauthorized');
+          }
+  
+          await User.findOneAndUpdate(
+            { _id: context.user._id },
+            { $pull: { tabs: tab._id } }
+          );
+  
+          return tab;
+        }
+        throw new Error('You need to be logged in!');
+    }
 
     }
 }
