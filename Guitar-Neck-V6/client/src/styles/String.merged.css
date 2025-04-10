@@ -2,7 +2,7 @@
 .guitar-string {
   position: relative;
   width: 100%;
-  height: 2px;
+  height: 1px;
   margin: 15px 0;
   background: black;
   display: flex;
