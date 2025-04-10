@@ -1,19 +1,20 @@
 // src/components/LiveArray.tsx
 
-import { useTab } from './TabContext.js';
+import React from "react";
+import { useTab } from "./TabContext";
 
-function LiveArray() {
+const LiveArray: React.FC = () => {
   const { activeIndexes } = useTab();
 
   return (
     <div className="tab-display">
       {activeIndexes.map((fret, idx) => (
         <div key={idx} className="tab-fret">
-          {fret === -1 ? '-' : fret}
+          {fret === -1 ? "-" : fret}
         </div>
       ))}
     </div>
   );
-}
+};
 
 export default LiveArray;

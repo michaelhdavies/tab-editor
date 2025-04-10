@@ -1,0 +1,114 @@
+/* TabEditor.css */
+
+.guitar-interface {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.bottomRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+/* Live tab display */
+.tab-display {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  min-height: 40px;
+  align-items: center;
+  font-family: monospace;
+}
+
+.tab-fret {
+  font-size: 24px;
+  min-width: 20px;
+  text-align: center;
+}
+
+/* Buttons */
+.buttonsDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+}
+
+.addButton,
+.removeButton,
+.resetButton {
+  width: 60px;
+  height: 60px;
+  border: 2px solid #000;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.addButton {
+  background-color: #4caf50;
+  color: white;
+}
+
+.removeButton {
+  background-color: #f44336;
+  color: white;
+}
+
+.resetButton {
+  background-color: #2196f3;
+  color: white;
+}
+
+.addButton:hover {
+  background-color: #45a049;
+}
+.removeButton:hover {
+  background-color: #d32f2f;
+}
+.resetButton:hover {
+  background-color: #1976d2;
+}
+
+/* Tab displays */
+.tabs {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family: monospace;
+}
+
+.tabs pre {
+  font-size: 20px;
+  line-height: 1.5;
+  margin: 0;
+  padding: 10px;
+  text-align: left;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.display-tab {
+  max-width: 80vw;
+  overflow-x: auto;
+  white-space: pre;
+  margin: 0;
+  padding: 10px;
+  font-size: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+

@@ -1,10 +1,11 @@
-// src/DisplayTabs.tsx
+// src/components/DisplayTabs.tsx
 
-import { useTab } from './TabContext.js';
+import React from "react";
+import { useTab } from "./TabContext";
 
-function DisplayTabs() {
+const DisplayTabs: React.FC = () => {
   const { activeTabs } = useTab();
-  const strings = ['e', 'B', 'G', 'D', 'A', 'E'];
+  const strings = ["e", "B", "G", "D", "A", "E"];
 
   const lines: Record<string, string[]> = {
     e: [],
@@ -17,7 +18,7 @@ function DisplayTabs() {
 
   const formatFret = (fret: number, hasDoubleDigits: boolean) => {
     if (fret === -1) {
-      return hasDoubleDigits ? '----' : '---';
+      return hasDoubleDigits ? "----" : "---";
     }
     const fretStr = fret.toString();
     if (hasDoubleDigits) {
@@ -31,7 +32,7 @@ function DisplayTabs() {
 
   if (!hasSavedTabs) {
     for (const stringName of strings) {
-      lines[stringName].push('---');
+      lines[stringName].push("---");
     }
   } else {
     activeTabs.forEach((tab) => {
@@ -47,12 +48,12 @@ function DisplayTabs() {
       <pre className="display-tab">
         {strings.map((stringName) => (
           <div key={stringName}>
-            {stringName}:|{lines[stringName].join('')}|
+            {stringName}:|{lines[stringName].join("")}|
           </div>
         ))}
       </pre>
     </div>
   );
-}
+};
 
 export default DisplayTabs;

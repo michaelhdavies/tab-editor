@@ -1,14 +1,18 @@
 // src/App.tsx
 
+import React from "react";
+import "./App.merged.css"; // Import merged styles first
 import "./styles/index.css"; // Import our new merged styles
+import "./styles/TabEditor.css";
+import "./styles/global.css"; // This will override all other styles
 import GuitarNeck from "./components/GuitarNeck"; // Updated import path
-import LiveTabs from "./components/LiveTabs.js";
-import LiveArray from "./components/LiveArray.js";
-import { TabProvider } from "./components/TabProvider.js";
-import ButtonsBox from "./components/ButtonsBox.js";
-import DisplayTabs from "./components/DisplayTabs.js";
+import LiveTabs from "./components/LiveTabs";
+import LiveArray from "./components/LiveArray";
+import { TabProvider } from "./components/TabProvider";
+import ButtonsBox from "./components/ButtonsBox";
+import DisplayTabs from "./components/DisplayTabs";
 
-function App() {
+const App: React.FC = () => {
   return (
     <>
       <TabProvider>
@@ -26,6 +30,6 @@ function App() {
       </TabProvider>
     </>
   );
-}
+};
 
 export default App;

@@ -1,0 +1,6 @@
+/* Global styles that will override all others */
+html[lang="en"],
+body,
+#root {
+  background-color: #f3f1ee !important;
+}

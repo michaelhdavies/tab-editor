@@ -3,13 +3,6 @@
 @import "./String.merged.css";
 @import "./Fret.merged.css";
 
-/* Global styles */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background: white;
-}
 
 /* Container for the entire guitar interface */
 .guitar-interface {

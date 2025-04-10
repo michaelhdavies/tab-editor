@@ -1,16 +1,17 @@
 // src/components/LiveTabs.tsx
 
-import { useTab } from './TabContext.js';
+import React from "react";
+import { useTab } from "./TabContext";
 
-function LiveTabs() {
+const LiveTabs: React.FC = () => {
   const { activeIndexes } = useTab();
-  const strings = ['e', 'B', 'G', 'D', 'A', 'E'];
+  const strings = ["e", "B", "G", "D", "A", "E"];
 
   const hasDoubleDigits = activeIndexes.some((fret) => fret >= 10);
 
   const formatFret = (fret: number): string => {
     if (fret === -1) {
-      return hasDoubleDigits ? '----' : '---';
+      return hasDoubleDigits ? "----" : "---";
     }
     const fretStr = fret.toString();
     if (hasDoubleDigits) {
@@ -29,6 +30,6 @@ function LiveTabs() {
       ))}
     </pre>
   );
-}
+};
 
 export default LiveTabs;

@@ -1,9 +1,11 @@
 // src/components/ButtonsBox.tsx
 
-import { useTab } from './TabContext.js';
+import React from "react";
+import { useTab } from "./TabContext";
 
-function ButtonsBox() {
-  const { activeIndexes, activeTabs, setActiveTabs, setActiveIndexes } = useTab();
+const ButtonsBox: React.FC = () => {
+  const { activeIndexes, activeTabs, setActiveTabs, setActiveIndexes } =
+    useTab();
 
   const addTab = () => {
     setActiveTabs([...activeTabs, [...activeIndexes]]);
@@ -21,16 +23,16 @@ function ButtonsBox() {
   return (
     <div className="buttonsDiv">
       <button className="addButton" onClick={addTab}>
-        {'\u002B'}
+        {"\u002B"}
       </button>
       <button className="removeButton" onClick={removeLastTab}>
-        {'\u2212'}
+        {"\u2212"}
       </button>
       <button className="resetButton" onClick={resetTabs}>
-        {'\u21BB'}
+        {"\u21BB"}
       </button>
     </div>
   );
-}
+};
 
 export default ButtonsBox;

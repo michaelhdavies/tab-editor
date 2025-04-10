@@ -1,5 +1,20 @@
 /* Merged App.css - Combining V4 and current styles */
 
+/* Root Styles */
+:root {
+  background-color: #ffd29b;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #ffd29b;
+}
+
+html {
+  background-color: #ffd29b;
+}
+
 /* Layout Structure */
 .pageLayout {
   display: flex;
@@ -206,9 +221,3 @@
   color: black;
 }
 
-/* Clean, minimal theme */
-body {
-  background-color: white;
-  color: black;
-  font-family: Arial, sans-serif;
-}
