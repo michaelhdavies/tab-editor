@@ -25,24 +25,29 @@ const Signup = () => {
 
   const handleFormSubmit = async (event: FormEvent) => {
     event.preventDefault();
-
+  
     try {
       const { data } = await addUser({
-        variables: { input: { ...formState } },
+        variables: { 
+          username: formState.username,
+          email: formState.email,
+          password: formState.password
+        },
       });
-
+  
       Auth.login(data.addUser.token);
     } catch (e) {
       console.error(e);
     }
   };
+  
 
   return (
-    <main className="flex-row justify-center mb-4">
-      <div className="col-12 col-lg-10">
-        <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">Sign Up</h4>
-          <div className="card-body">
+    <main>
+      <div>
+        <div>
+          <h4>Sign Up</h4>
+          <div>
             {data ? (
               <p>
                 Success! You may now head{' '}
@@ -75,7 +80,7 @@ const Signup = () => {
                   onChange={handleChange}
                 />
                 <button
-                  className="btn btn-block btn-primary"
+                  className="submitButton"
                   style={{ cursor: 'pointer' }}
                   type="submit"
                 >

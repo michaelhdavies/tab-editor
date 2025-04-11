@@ -109,6 +109,22 @@
   align-items: center;
 }
 
+.logoutButton,
+.loginButton,
+.signupButton,
+.submitButton,
+.backButton {
+  width: 100px;
+  height: 30px;
+  font-weight: bold;
+  border: 2px solid black;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .addButton {
   background-color: #4CAF50;
   color: white;
