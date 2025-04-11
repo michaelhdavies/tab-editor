@@ -1,5 +1,6 @@
 import express from 'express';
 import path from 'node:path';
+import cors from 'cors';
 import db from './config/connection.js';
 import { ApolloServer } from '@apollo/server'; // Note: Import from @apollo/server-express
 import { expressMiddleware } from '@apollo/server/express4';
@@ -14,6 +15,10 @@ const startApolloServer = async () => {
     await db();
     const PORT = process.env.PORT || 3001;
     const app = express();
+    app.use(cors({
+        origin: 'http://localhost:3000', // Your frontend URL
+        credentials: true, // If sending cookies/auth
+    }));
     app.use(express.urlencoded({ extended: false }));
     app.use(express.json());
     app.use('/graphql', expressMiddleware(server, {
